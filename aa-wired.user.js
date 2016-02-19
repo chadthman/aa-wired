@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         aa-wired
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1.1
 // @description  replace javascript load of ad blocker
 // @author       akadrac
 // @match        http://*.wired.com/*
+// @updateURL    https://github.com/akadrac/aa-wired/raw/master/aa-wired.user.js
+// @downloadURL  https://github.com/akadrac/aa-wired/raw/master/aa-wired.user.js
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
