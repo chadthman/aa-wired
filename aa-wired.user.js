@@ -12,24 +12,14 @@
 /* jshint -W097 */
 'use strict';
 
-// Your code here...
+var adScript = document.evaluate("//script", document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 
-var adScript = document.evaluate("//script", document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null); 
-
-var bad  = "http://www.wired.com/assets/load?scripts=true&c=1&load%5B%5D=jquery-sonar,wpcom-lazy-load-images,outbrain,tracking,ads,wired&ver=1455828505";
-var ffBad = "http://www.wired.com/assets/load?scripts=true&amp;c=1&amp;load%5B%5D=jquery-sonar,wpcom-lazy-load-images,outbrain,tracking,ads,wired&amp;ver=1455828505";
-
-var good = "http://www.wired.com/assets/load?scripts=true&c=1&load%5B%5D=jquery-sonar,wpcom-lazy-load-images,wired&ver=1455828505";
-
-for (var i=0; i < adScript.snapshotLength; i++) { 
-    var src = adScript.snapshotItem(i).src;
-    if (src == bad) {
-        src = good;
-        break;
-    }
-    if (src == ffBad) {
-        src = good;
-        break;
-    }
+for (var i=0; i < adScript.snapshotLength; i++) {
+	var src = adScript.snapshotItem(i).src;
+	if (src.indexOf(',outbrain,tracking,ads') > -1) {
+		src = src.replace(',outbrain,tracking,ads', '').replace('&amp;', '&');
+		//alert(src);
+		break;
+	}
 }
 
