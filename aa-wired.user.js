@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         aa-wired
 // @namespace    http://tampermonkey.net/
-// @version      0.1.2
+// @version      0.2
 // @description  replace javascript load of ad blocker
 // @author       akadrac
 // @match        http://*.wired.com/*
